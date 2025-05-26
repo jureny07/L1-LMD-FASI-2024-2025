@@ -1,0 +1,203 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+}
+:root {
+    --couleur1: #1E2A38;
+    --couleur2: #D32F2F;
+    --couleur-fond: #F2F2F2;
+    --couleur-texte: #333333;
+    --muted-text: #B0B0B0;
+    --white: #FFFFFF;
+  }
+  /*initialisation du header page d'accueil*/
+.accueil{
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    position: fixed;
+     
+}
+
+header img{
+    width: 200px;
+}
+/*initialisation du header des autres pages*/
+.autre-page{
+    background-color: #142947;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    
+}
+    
+
+
+body{
+    margin: 0 auto;
+}
+
+section.haut{
+    
+    background: url(/photo/image-site/lukasz-niescioruk-_Tm2tvKPBdU-unsplash.jpg);
+    height: 70vh;
+    background-size: cover;
+    
+}
+.landing-page h1 {
+    margin-top: 1px;
+    padding: 25px;
+
+    
+}
+.titre{
+    color: wheat;
+    font-size: 40px;
+    
+
+}
+/* menu de navigation pour les pages */
+nav{
+    
+    width: 400px;
+    margin-left: 400px;
+   
+    
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    gap: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    margin-left: 400px;
+   
+} 
+nav ul a {
+    text-decoration: none;
+    color: var(--couleur2);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: text-decoration 0.3s, color 0.3s;
+}
+
+nav ul a:hover {
+    text-decoration: underline;
+    
+}
+nav ul li a :link{
+    color: var(--couleur1);
+    background-color: var(--couleur2);
+    border-radius: 5px;
+}
+
+
+
+/*style pour les produits*/
+.texte h1{
+    text-align: center;
+    color: var(--couleur1);
+    font-size: 40px;
+}
+
+.catalogue {
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+.product {
+        border: 1px solid #648A74;
+        border-radius: 5px;
+        background: white;
+        text-align: center;
+        padding: 20px;
+        margin:0 auto;
+        
+        
+    }
+
+
+.product img {
+        max-width: 100%;
+        height: 200px;
+        border-bottom: 1px solid #142947;
+        margin-bottom: 10px;
+        
+        
+       }
+.prix{
+    color:var(--couleur2);
+}
+
+.product button a{
+    color: white;
+    text-decoration: none;
+    
+}
+    button {
+        background-color: var(--couleur1);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        
+    }
+    
+    button:hover {
+        background-color: #142947;
+        transition: background-color 0.3s;
+    }
+    
+
+
+
+footer{
+    background-color :var(--couleur1);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+footer p{
+    color: white;
+    font-size: 20px;
+    padding-top: 30px;
+}
+
+/*Ajustez lz site pour les formats tablette et mobile */
+@media (max-width: 800px) {
+    header{
+        margin: auto;
+    }
+    
+    nav ul {
+        display: flex;
+        align-items: center;
+    }
+    section.haut {
+        background-size:cover;
+        width: 600px;
+    }
+
+    .catalogue {
+        display: flex;
+        align-items: center;
+    }
+            
+    header {
+       width: 700px;
+        text-align: center;
+        background-size: cover;
+    }
+
+    .titre {
+        font-size: 28px;
+    }
+}
+

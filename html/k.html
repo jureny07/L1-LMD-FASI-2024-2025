@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Panier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      max-width: 300px;
+    }
+    .cart {
+      margin-top: 30px;
+      border-top: 2px solid #000;
+      padding-top: 20px;
+      max-width: 500px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Produits</h1>
+
+  <div class="product">
+    <h3>Produit 1</h3>
+    <p>Prix : 10 €</p>
+    <button onclick="addToCart('Produit 1', 800)">Ajouter au panier</button>
+  </div>
+
+  <div class="product">
+    <h3>Produit 2</h3>
+    <p>Prix : 20 €</p>
+    <button onclick="addToCart('Produit 2', 20)">Ajouter au panier</button>
+  </div>
+
+  <div class="cart">
+    <h2>🛒 Panier</h2>
+    <div id="cart-items"></div>
+    <h3>Total : <span id="total">0</span> €</h3>
+  </div>
+
+  <script>
+    const cart = [];
+
+    function addToCart(name, price) {
+      const item = cart.find(i => i.name === name);
+      if (item) {
+        item.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      updateCart();
+    }
+
+    function removeItem(name) {
+      const index = cart.findIndex(i => i.name === name);
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
+      updateCart();
+    }
+
+    function changeQuantity(name, amount) {
+      const item = cart.find(i => i.name === name);
+      if (item) {
+        item.quantity += amount;
+        if (item.quantity <= 0) {
+          removeItem(name);
+        }
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalSpan = document.getElementById('total');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          ${item.name} - ${item.quantity} x ${item.price}€ 
+          <div>
+            <button onclick="changeQuantity('${item.name}', 1)">+</button>
+            <button onclick="changeQuantity('${item.name}', -1)">-</button>
+            <button onclick="removeItem('${item.name}')">🗑️</button>
+          </div>
+        `;
+        cartItems.appendChild(itemDiv);
+        total += item.price * item.quantity;
+      });
+
+      totalSpan.textContent = total.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
