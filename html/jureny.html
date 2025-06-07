@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panier - Amani Motors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .products, .cart {
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .product-card h3 {
+      color: #005bac;
+    }
+
+    .price {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .add-to-cart {
+      background-color: #005bac;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .cart table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .cart th, .cart td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .cart th {
+      background-color: #005bac;
+      color: white;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .remove-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🛒 Panier Amani Motors</h1>
+
+<div class="products">
+  <!-- Produits -->
+  <div class="product-card">
+    <img src="images/plaquettes-frein.jpg" alt="Plaquettes de frein" />
+    <h3>Plaquettes de frein BOSCH</h3>
+    <p class="price" data-price="29.90">29,90 €</p>
+    <button class="add-to-cart" data-name="Plaquettes BOSCH" data-price="29.90">Ajouter au panier</button>
+  </div>
+
+  <div class="product-card">
+    <img src="images/filtre-huile.jpg" alt="Filtre à huile" />
+    <h3>Filtre à huile MANN-FILTER</h3>
+    <p class="price" data-price="12.50">12,50 €</p>
+    <button class="add-to-cart" data-name="Filtre à huile" data-price="12.50">Ajouter au panier</button>
+  </div>
+
+  <div class="product-card">
+    <img src="images/batterie-varta.jpg" alt="Batterie VARTA" />
+    <h3>Batterie VARTA 70Ah</h3>
+    <p class="price" data-price="99.00">99,00 €</p>
+    <button class="add-to-cart" data-name="Batterie VARTA" data-price="99.00">Ajouter au panier</button>
+  </div>
+</div>
+
+<!-- PANIER -->
+<div class="cart">
+  <h2>🧾 Votre panier</h2>
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Prix unitaire</th>
+        <th>Quantité</th>
+        <th>Sous-total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <p class="total">Total : <span id="total">0,00 €</span></p>
+</div>
+
+<script>
+  const cart = {};
+  const cartTableBody = document.querySelector('#cart-table tbody');
+  const totalDisplay = document.getElementById('total');
+
+  function updateCartDisplay() {
+    cartTableBody.innerHTML = '';
+    let total = 0;
+
+    Object.keys(cart).forEach(productName => {
+      const item = cart[productName];
+      const row = document.createElement('tr');
+
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
+
+      row.innerHTML = `
+        <td>${productName}</td>
+        <td>${item.price.toFixed(2)} €</td>
+        <td>${item.quantity}</td>
+        <td>${subtotal.toFixed(2)} €</td>
+        <td><button class="remove-btn" onclick="removeFromCart('${productName}')">Supprimer</button></td>
+      `;
+      cartTableBody.appendChild(row);
+    });
+
+    totalDisplay.textContent = total.toFixed(2) + ' €';
+  }
+
+  function addToCart(name, price) {
+    if (cart[name]) {
+      cart[name].quantity += 1;
+    } else {
+      cart[name] = { price: parseFloat(price), quantity: 1 };
+    }
+    updateCartDisplay();
+  }
+
+  function removeFromCart(name) {
+    delete cart[name];
+    updateCartDisplay();
+  }
+
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.getAttribute('data-name');
+      const price = btn.getAttribute('data-price');
+      addToCart(name, price);
+    });
+  });
+</script>
+
+</body>
+</html>
