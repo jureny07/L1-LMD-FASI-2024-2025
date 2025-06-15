@@ -1,37 +1,103 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Vente de Pièces de Véhicule</title>
-    
-</head>
-<body>
-    <header>
-        <h1>Vente de Pièces de Véhicule</h1>
-    </header>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#">Catalogue</a>
-        <a href="#">À propos</a>
-        <a href="#">Contact</a>
-    </nav>
-    <section class="catalogue">
-        <div class="product">
-            <img src="lo/calandre.jpg" alt="Produit 1">
-            <h2>Pièce 1</h2>
-            <p>Prix : $50</p>
-        </div>
-        <div class="product">
-            <img src="lo/filtre.jpg" alt="Produit 2">
-            <h2>Pièce 2</h2>
-            <p>Prix : $80</p>
-        </div>
-        <!-- Ajoutez d'autres produits ici -->
-    </section>
-    <footer>
-        <p>&copy; 2025 Vente de Pièces de Véhicule. Tous droits réservés.</p>
-    </footer>
-</body>
-</html>
+<style>
+   .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #142947;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+    color: #ffcc00;
+    outline: none;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* ======================== Responsive ======================== */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: #142947;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        display: none;
+        z-index: 100;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+    }
+} 
+</style>
+<header class="header">
+ 
+    <div class="logo">
+    <img src="/photo/logo.png" alt="Logo">
+  </div>
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="produits.html">Produits</a></li>
+      <li><a href="categories.html">Catégories</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+ <script> const toggleBtn = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>

@@ -1,267 +1,22 @@
-*{
+* {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-  /*initialisation du header page d'accueil*/
- .accueil{
+/* ======================== Header ======================== */
+.accueil {
     display: flex;
     align-items: center;
     background-size: cover;
-    
-    
-     
-}
-
-header img{
-    width: 200px;
-}
-/*initialisation du header des autres pages*/
-.autre-page{
-    background-color: #142947;
-    width: 100%;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    
-    
-}
-    
-
-
-body{
-    margin: 0 auto;
-}
-
-section.haut{
-    
-    background: url(/photo/image-site/lukasz-niescioruk-x61c6dg7jkU-unsplash.jpg);
-    height: 70vh;
-    background-size: cover;
-    
-}
-.landing-page h1 {
-    margin-top: 1px;
-    padding: 25px
-}
-.titre{
-    color: wheat;
-    font-size: 40px;
-    
-
-}
-/* menu de navigation pour les pages */
-nav{
-    
-    width: 400px;
-    margin-left: 400px;
-   
-    
-}
-nav ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    gap: 40px;
-    font-weight: bold;
-    font-size: 20px;
-    transition: background-color 0.3s;
-    margin-left: 400px;
-   
-} 
-nav ul a {
-    text-decoration: none;
-    color: red;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: text-decoration 0.3s, color 0.3s;
-}
-
-nav ul a:hover {
-    text-decoration: underline;
-    
-}
-
-
-
- .section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      color: #333;
-      font-size: 2.2em;
-      margin-bottom: 30px;
-    }
-/*style pour "categories"*/
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #ffffff;
-      border-radius: 10px;
-      padding: 25px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      font-size: 1.2em;
-      color: #005bac;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #555;
-      font-size: 0.95em;
-    }
-/*style pour la section "produits" */
-.meilleures-ventes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card img {
-  max-width: 100%;
-  height: 150px;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-.product-card h3 {
-  font-size: 1.1em;
-  color: #005bac;
-  margin-bottom: 10px;
-}
-
-.product-card p {
-  font-size: 0.95em;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.prix {
-  display: inline-block;
-  font-weight: bold;
-  color: #28a745;
-  font-size: 1.1em;
-}
-.boutton {
-  padding: 10px 20px;
-  background-color: #005bac;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.boutton:hover {
-  background-color: #003e7e;
-}
-/*style pour "pourquoi nous choisir"*/
-.raison{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .carte {
-      background-color: #ffffff;
-      border-radius: 10px;
-      padding: 25px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .carte h3 {
-      font-size: 1.2em;
-      color: #005bac;
-      margin-bottom: 10px;
-    }
-
-    .carte p {
-      color: #555;
-      font-size: 0.95em;
-    }
-    .text-presentation {
-        
-    }
-/*style pour footer*/
-footer{
-    background-color :#142947;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-}
-footer p{
-    color: white;
-    font-size: 20px;
-    padding-top: 30px;
-}
-
-/*Ajustez lz site pour les formats tablette et mobile */
-@media (max-width: 600px) {
-    body {
-        margin: 0;
-        overflow-x: hidden;
-    }
-    header{
-        margin: auto;
-    }
-    .accueil {
-        flex-direction: column;
-        align-items: center;
+}  section.haut {
         background-size: cover;
-        position: relative;
-        
-    }
-    nav ul a{
-        display: none;
+        width: 100%;
     }
 
-
-    section.haut {
-        background-size:cover;
-        width: 600px;
-    }
-
-    .catalogue {
-        display: flex;
-        align-items: center;
-    }
-            
     header {
-       width: 700px;
+        width: 100%;
         text-align: center;
         background-size: cover;
     }
@@ -269,4 +24,267 @@ footer p{
     .titre {
         font-size: 28px;
     }
+  
+
+header img {
+    width: 200px;
 }
+
+.autre-page {
+    background-color: #142947;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+/* ======================== Corps ======================== */
+body {
+    margin: 0 auto;
+}
+
+section.haut {
+    background: url(/photo/image-site/lukasz-niescioruk-x61c6dg7jkU-unsplash.jpg);
+    height: 70vh;
+    background-size: cover;
+}
+
+.landing-page h1 {
+    margin-top: 1px;
+    padding: 25px;
+}
+
+.titre {
+    color: wheat;
+    font-size: 40px;
+}
+
+/* ======================== Navigation ======================== */
+.nav-links {
+    width: 400px;
+    margin-left: 400px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    gap: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 400px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #005bac;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: text-decoration 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* ======================== Sections génériques ======================== */
+.section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+.debut h1,
+.debut p {
+    text-align: center;
+    color: #333;
+    font-size: 25px;
+}
+
+.text-presentation {
+    text-align: center;
+    color: #333;
+}
+
+/* ======================== Catégories ======================== */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Cartes partagées */
+.card, .carte {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover, .carte:hover {
+    transform: translateY(-5px);
+}
+
+.card h3,
+.carte h3 {
+    font-size: 1.2em;
+    color: #005bac;
+    margin-bottom: 10px;
+}
+
+.card p,
+.carte p {
+    color: #555;
+    font-size: 0.95em;
+}
+
+/* ======================== Produits ======================== */
+.meilleures-ventes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+    color: #005bac;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.prix {
+    display: inline-block;
+    font-weight: bold;
+    color: #28a745;
+    font-size: 1.1em;
+}
+
+.boutton {
+    padding: 10px 20px;
+    background-color: #005bac;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boutton:hover {
+    background-color: #003e7e;
+}
+
+/* ======================== Footer ======================== */
+footer {
+    background-color: #142947;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    color: white;
+    font-size: 20px;
+    padding-top: 30px;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* ======================== Formulaire ======================== */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ======================== Responsive ======================== */
+@media screen and (max-width: 760px) {
+   
+
+     .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #142947;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    display: none;
+    z-index: 100;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+  }
+}
+
+  
